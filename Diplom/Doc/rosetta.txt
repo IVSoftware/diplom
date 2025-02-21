@@ -1,0 +1,33 @@
+DIPLOM
+
+123123
+
+УЧЕБНЫЕ ДИСЦИПЛИНЫ,
+
+Дисциплина, междисциплинарный курс 123123
+
+Дата занятий (число, месяц)
+
+12/12
+
+№ п/п
+
+12/45
+
+
+DIPLOM (Diploma)
+
+123123
+
+ACADEMIC DISCIPLINES,
+
+Discipline, Interdisciplinary Course 123123
+
+Class Date (day, month)
+
+12/12
+
+№ (serial number)
+
+12/45
+
