@@ -25,9 +25,10 @@ namespace Diplom
                 tableLayoutPanel.ColumnStyles[2].Width = adjWidth;
                 tableLayoutPanel.ColumnStyles[3].Width = adjWidth;
 
-                dataGridViewStudentEntry.Columns[nameof(StudentEntry.Id)].Width = 
-                    labelCol1.Width + labelCol1.Margin.Horizontal - dataGridViewStudentEntry.RowHeadersWidth;
-                dataGridViewStudentEntry.Columns[nameof(StudentEntry.Name)].Width = 
+                var idCol = dataGridViewStudentEntry.Columns[nameof(StudentEntry.Id)];
+                idCol.Width = labelCol1.Width + labelCol1.Margin.Horizontal - dataGridViewStudentEntry.RowHeadersWidth;
+                idCol.DefaultCellStyle.Font = new Font(Font.FontFamily, 8f);
+                dataGridViewStudentEntry.Columns[nameof(StudentEntry.Name)].Width =
                     labelCol2.Width + labelCol2.Margin.Horizontal + 1; // Where 1 is the width of the table layout panel cell border.
 
                 dataGridViewNumberEntry.Rows[0].Height = height;
@@ -38,7 +39,7 @@ namespace Diplom
 
                 dataGridViewNumberEntry
                     .Columns.OfType<DataGridViewColumn>().ToList()
-                   . ForEach(_ => _.Width = width);
+                   .ForEach(_ => _.Width = width);
                 dataGridViewStudentEntry
                     .Columns.OfType<DataGridViewColumn>()
                     .Skip(2)
@@ -66,6 +67,7 @@ namespace Diplom
                 };
             }
         }
+
         BindingList<NumberEntry> NumberEntries { get; } = new BindingList<NumberEntry>
         {
             new NumberEntry
