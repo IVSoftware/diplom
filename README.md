@@ -2,16 +2,18 @@ In your clarifying comment, you said:
 
 >  The question is how to make proper movement similar to that in Excel between cells.
 
-One sure way to get an "Excel-like" experience is to use `DataGridView` and I don't think I understand why you would say _"this can't be done in a table or TableLayotPanel"_. But let's make sure you're using your `ColumnSpan` and `RowSpan` properties effectively. 
+One sure way to get an "Excel-like" experience is to use `DataGridView` so that's my first recommendation. But when you would say _"this can't be done in a table or TableLayotPanel"_ the other part of this answer is to make sure you're using your `ColumnSpan` and `RowSpan` properties effectively. 
 
-This image shows the designer with a `TableLayoutPanel` before and after placing textboxes, labels, and 2 instances of DataGridView (identified with distinctive colors). 
+This image shows the designer with a `TableLayoutPanel` before and after placing textboxes, labels, and 2 instances of `DataGridView` (identified with distinctive colors). 
 
-[ ]
+[![designer view][1]][1]
 
-Once these are placed, we just need to provide a little bit of code to keep things lined up when the main window changes. 
+___
+
+Once these controls are placed, we just need to provide a little bit of code to keep things lined up when the main window size changes. 
 
 ```
- public partial class DiplomForm : Form
+public partial class DiplomForm : Form
 {
     public DiplomForm() => InitializeComponent();
     protected override void OnLoad(EventArgs e)
@@ -74,10 +76,16 @@ Once these are placed, we just need to provide a little bit of code to keep thin
             };
         }
     }
+    .
+    .
+    .
 ```
-This just adds a couple values to test.
+And the rest of the code simply adds some records for test.
 
 ```
+    .
+    .
+    .
     BindingList<NumberEntry> NumberEntries { get; } = new BindingList<NumberEntry>
     {
         new NumberEntry
@@ -112,14 +120,16 @@ This just adds a couple values to test.
 }
 ```
 
-What I'm trying to say is that perhaps you should reconsider `TableLayoutPanel`. At the same time, using `DataGridView` solves your "excel-like" navigation without having to reinvent it. _I realize that this minimal example won't be "exactly" the way you want it. But I hope it gives you a start._
+What I'm trying to say is that perhaps you should reconsider `TableLayoutPanel`. At the same time, using `DataGridView` solves your "excel-like" navigation without having to reinvent it. _I realize that this minimal example won't be "exactly" the way you want it. But I hope it gives you a start._ Here's what it looks like when we run it:
+
+[![screenshot][2]][2]
 
 
 ___
 
 **Data Models Used**
 
-
+```
 class StudentEntry : NumberEntry
 {
     public int Id { get; set; }
@@ -152,5 +162,8 @@ class NumberEntry
     public int Column22 { get; set; }
     public int Column23 { get; set; }
 }
+```
 
 
+  [1]: https://i.sstatic.net/oJQvqtYA.png
+  [2]: https://i.sstatic.net/2r03NQM6.png

@@ -107,7 +107,7 @@
             // 
             tableLayoutPanel.SetColumnSpan(label2, 2);
             label2.Dock = DockStyle.Fill;
-            label2.Font = new Font("Microsoft Sans Serif", 7F);
+            label2.Font = new Font("Microsoft Sans Serif", 6F);
             label2.Location = new Point(2, 43);
             label2.Margin = new Padding(1);
             label2.Name = "label2";
